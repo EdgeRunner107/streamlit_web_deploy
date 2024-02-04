@@ -3,21 +3,20 @@ import streamlit as st
 import time
 assistant_id = "asst_AQHCCarzrPldnAwojmkywt7u"
 
-ky = "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" #올라가면지움?
 
 with st.sidebar:
-    openai_api_key = ky
+    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password", value="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")
     client = OpenAI(api_key=openai_api_key)
-    thread_id = "thread_izO4OSbHw10ykea3YM6vAM0M"
-    #thread_btn = st.button("대화 생성")
+    thread_id = st.text_input("Thread ID")
+    thread_btn = st.button("대화 생성")
     newbtn = st.button("(비행기)통관언어도우미")
     newbtn2 = st.button("교육 언어 도우미")
-    newbtn3 = st.button("의료 언어 도우미")
-   # if thread_btn:
-   #     thread = client.beta.threads.create()
-    #    thread_id = thread.id
-     #   st.subheader(f"{thread_id}",divider="rainbow")
-      #  st.info("새 대화가 생성되었습니다")
+    newbtn3 = st.button("의료 언어")
+    if thread_btn:
+        thread = client.beta.threads.create()
+        thread_id = thread.id
+        st.subheader(f"{thread_id}",divider="rainbow")
+        st.info("새 대화가 생성되었습니다")
 
 
 
