@@ -5,14 +5,14 @@ assistant_id = "asst_AQHCCarzrPldnAwojmkywt7u"
 
 
 with st.sidebar:
-    openai_api_key = st.secrets["api_key"]
+    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password", value="")
     client = OpenAI(api_key=openai_api_key)
     thread_id = "thread_izO4OSbHw10ykea3YM6vAM0M"
 
     newbtn = st.button("(비행기)통관언어도우미")
     newbtn2 = st.button("교육 언어 도우미")
     newbtn3 = st.button("의료 언어")
-
+    
 
 
 
